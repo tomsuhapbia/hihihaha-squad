@@ -1,20 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <defs>
-    <linearGradient id="cyberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#53d8fb"/>
-      <stop offset="100%" stop-color="#e5ff70"/>
-    </linearGradient>
-  </defs>
-  <!-- Background -->
-  <rect width="64" height="64" rx="16" fill="#08111f"/>
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#2a3c55" stroke-width="2"/>
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#cyberGrad)" stroke-width="2" stroke-opacity="0.6" stroke-dasharray="8 4"/>
-  <!-- Cyber brackets { :) } -->
-  <path d="M 16 20 C 20 20, 20 28, 16 32 C 20 36, 20 44, 16 44" fill="none" stroke="#53d8fb" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 48 20 C 44 20, 44 28, 48 32 C 44 36, 44 44, 48 44" fill="none" stroke="#53d8fb" stroke-width="3" stroke-linecap="round"/>
-  <!-- Eyes -->
-  <circle cx="28" cy="27" r="2.5" fill="#e5ff70"/>
-  <circle cx="36" cy="27" r="2.5" fill="#e5ff70"/>
-  <!-- Smile -->
-  <path d="M 27 36 C 30 40, 34 40, 37 36" fill="none" stroke="#e5ff70" stroke-width="3" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="20" fill="#f3c5d6"/>
+  <g fill="none" stroke="#974666" stroke-width="3.5" stroke-linecap="round">
+    <path d="M23 25v3m18-3v3M23 38q9 9 18 0"/>
+  </g>
 </svg>

@@ -1,126 +1,60 @@
-/**
- * HiHiHaHa Squad — Main JavaScript
- * Handles accessible mobile navigation, reveal-on-scroll, and back-to-top.
- */
-
+/** Progressive enhancements. Page and language links stay native. */
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initRevealAnimations();
-  initBackToTop();
 });
 
-/**
- * Mobile Navigation Menu (Accessible Disclosure)
- */
 function initMobileNav() {
-  const toggleBtn = document.querySelector('.menu-toggle');
-  const mobileNav = document.querySelector('.mobile-nav');
-
-  if (!toggleBtn || !mobileNav) return;
-
-  const closeMenu = (returnFocus = false) => {
-    toggleBtn.setAttribute('aria-expanded', 'false');
-    mobileNav.classList.remove('is-open');
-    if (returnFocus) {
-      toggleBtn.focus();
-    }
+  const button = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.mobile-nav');
+  if (!button || !nav) return;
+  const desktop = window.matchMedia('(min-width: 900px)');
+  const english = document.documentElement.lang === 'en';
+  const setOpen = (open, returnFocus = false) => {
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', english
+      ? (open ? 'Close navigation menu' : 'Open navigation menu')
+      : (open ? 'Đóng menu điều hướng' : 'Mở menu điều hướng'));
+    nav.classList.toggle('is-open', open);
+    if (returnFocus) button.focus();
   };
-
-  const openMenu = () => {
-    toggleBtn.setAttribute('aria-expanded', 'true');
-    mobileNav.classList.add('is-open');
-  };
-
-  // Toggle button click
-  toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-    if (isExpanded) {
-      closeMenu();
-    } else {
-      openMenu();
+  button.addEventListener('click', () => {
+    setOpen(button.getAttribute('aria-expanded') !== 'true');
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') setOpen(false, true);
+  });
+  document.addEventListener('click', (event) => {
+    if (button.getAttribute('aria-expanded') === 'true' && !nav.contains(event.target) && !button.contains(event.target)) {
+      setOpen(false, nav.contains(document.activeElement));
     }
   });
-
-  // Close when clicking mobile links
-  const navLinks = mobileNav.querySelectorAll('a');
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      closeMenu();
-    });
+  document.addEventListener('focusin', (event) => {
+    if (!nav.contains(event.target) && !button.contains(event.target)) setOpen(false);
   });
-
-  // Close on Escape key and return focus
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
-      closeMenu(true);
+  desktop.addEventListener('change', () => {
+    const focused = document.activeElement;
+    const header = document.querySelector('.site-header');
+    if (desktop.matches && (nav.contains(focused) || focused === button)) {
+      header.querySelector('.site-brand').focus();
+    } else if (!desktop.matches && header.querySelector('.site-nav').contains(focused)) {
+      button.focus();
     }
+    setOpen(false);
   });
-
-  // Close when clicking outside
-  document.addEventListener('click', (e) => {
-    if (
-      toggleBtn.getAttribute('aria-expanded') === 'true' &&
-      !mobileNav.contains(e.target) &&
-      !toggleBtn.contains(e.target)
-    ) {
-      closeMenu();
-    }
-  });
-
-  // Close on viewport resize over 860px
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 860 && toggleBtn.getAttribute('aria-expanded') === 'true') {
-      closeMenu();
-    }
-  });
+  setOpen(false);
+  document.documentElement.classList.add('nav-enhanced');
 }
 
-/**
- * Subtle Reveal-on-scroll using IntersectionObserver
- */
 function initRevealAnimations() {
-  const reveals = document.querySelectorAll('.reveal');
-  if (!reveals.length) return;
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-    reveals.forEach((el) => el.classList.add('is-revealed'));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      root: null,
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
-    }
-  );
-
-  reveals.forEach((el) => observer.observe(el));
-}
-
-/**
- * Back to top scroll button
- */
-function initBackToTop() {
-  const backBtn = document.querySelector('.back-to-top');
-  if (!backBtn) return;
-
-  backBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
     });
-  });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 }

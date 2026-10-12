@@ -20,19 +20,19 @@ Xây dựng website portfolio cho **HiHiHaHa Squad**, một team chuyên tham gi
 - Mục tiêu chính: **giới thiệu team**.
 - Website có **hai chế độ tiếng Việt và tiếng Anh**, chuyển đổi bằng bộ chọn ngôn ngữ.
 - About, Achievement, Project và Contact là **các trang riêng**, không phải các section điều hướng trên homepage.
-- Phong cách **cyber pha vui nhộn**, animation **vừa phải**.
+- Phong cách **minimal hồng pastel**, animation **vừa phải**.
 - Team gồm **4 thành viên**, đều học Data Science tại Trường Đại học Khoa học tự nhiên, ĐHQG-TP.HCM.
 - Có **1 thành tích**: giải **Giải pháp Tiêu biểu — SCIKATHON 2026**, tháng 10/2026, theo thông tin team cung cấp.
 - Dự án sẽ được bổ sung sau; chưa đưa dự án giả vào kế hoạch hoặc giao diện.
 - Team thành lập năm **2026**; ngôn ngữ mặc định **tiếng Việt**.
-- Palette **navy – cyan – vàng chanh** đã được đồng ý.
+- Palette **hồng phấn – trắng ấm – mận trầm** đã được đồng ý.
 - Dự kiến deploy **miễn phí trên Vercel**; link liên hệ sẽ gắn sau.
 
 ### 1.2. Hiện trạng workspace
 
 - Hiện có ảnh `homepage.png`, kích thước 2048 × 1536 px, dung lượng khoảng 2,95 MB.
 - Ảnh có nền xanh cyan, nhiều chi tiết và nhóm người trải rộng theo chiều ngang.
-- Chưa có source HTML/CSS/JavaScript hoặc cấu hình framework trong workspace khi khảo sát.
+- Đã có 10 trang HTML, CSS/JS dùng chung, ảnh WebP tối ưu và cấu hình Vercel.
 - Đã có `scikathon.png` (1536 × 2048 px), ảnh nhóm tại sự kiện, dùng làm tư liệu Achievement và có thể dùng trong About.
 - Đã có tên bốn thành viên và một thành tích; còn thiếu vai trò, bio, link cá nhân, dự án, liên hệ và logo.
 - Chưa có ánh xạ tên từng người trong ảnh; không tự nhận diện hoặc gán ảnh chân dung cho tên thành viên.
@@ -44,7 +44,7 @@ Xây dựng website portfolio cho **HiHiHaHa Squad**, một team chuyên tham gi
 | --- | --- | --- |
 | Cấu trúc | 5 trang: Home, About, Achievement, Project, Contact | Đã xác nhận các tab là trang riêng |
 | Công nghệ | HTML + CSS + JavaScript thuần | Có cần framework không |
-| Theme | Cyber pha vui nhộn; palette navy/cyan/vàng chanh | Đã xác nhận |
+| Theme | Minimal hồng pastel, nền sáng và chữ mận | Cập nhật theo yêu cầu mới nhất |
 | Nội dung | Hai chế độ Việt/Anh, mặc định Việt; mỗi chế độ hiển thị một ngôn ngữ | Đã xác nhận |
 | Chuyển động | Vừa phải, tắt chuyển động không cần thiết theo thiết lập hệ thống | Mức độ đã xác nhận |
 | Contact | Link liên hệ sẽ gắn sau; chưa đưa form vào MVP | Chờ link, chưa yêu cầu form |
@@ -89,59 +89,40 @@ URL ở sơ đồ tính từ thư mục publish của website. Source dùng đư
 
 Navigation giữ thứ tự About → Achievement → Project → Contact. Với mục tiêu giới thiệu team và chưa có dự án, đề xuất CTA chính “Gặp gỡ team” → About; CTA phụ “Dấu mốc của tụi mình” → Achievement. Home chỉ có hero và teaser ngắn nếu cần, không sao chép toàn bộ nội dung các trang con.
 
-## 3. Hướng thiết kế UI
+## 3. Thiết kế UI hiện tại — minimal hồng pastel
 
-### 3.1. Tính cách thị giác
+Yêu cầu mới nhất thay thế hướng cyber/navy/cyan trước đây. Thiết kế dùng nền hồng rất nhạt với gradient pastel mềm, nhiều khoảng trống, chữ tối rõ và điểm nhấn hồng phấn. Họa tiết dùng lưới ô vuông mảnh, rõ nhẹ ở phía trên rồi mờ dần xuống dưới, kèm một mảng lưới lệch ở góc phải page header và dấu sparkle nhỏ giữa các section. Không dùng họa tiết hình tròn, glow, nền lưới đậm, viền neon, nhãn terminal hoặc chuyển động trang trí liên tục.
 
-Hướng đã chốt: **cyber pha vui nhộn**, giữ nội dung dễ đọc và cá tính tự nhiên của team.
-
-- Dùng ảnh thật để tạo dấu ấn riêng cho team.
-- Nền tối và chữ lớn tạo cảm giác tập trung, phù hợp nội dung kỹ thuật.
-- Cyan liên kết với màu của ảnh; vàng chanh tạo điểm nhấn cho tên team và CTA.
-- Có thể dùng chi tiết nhỏ như `build`, `ship`, `hackathon` trong microcopy khi phù hợp nội dung thật.
-- Ưu tiên khoảng trắng, tiêu đề rõ và ảnh dự án tốt; hạn chế trang trí kiểu terminal dày đặc.
-- Chất cyber: grid mờ, đường viền cyan, nhãn monospace, góc trang trí và glow nhỏ quanh CTA hoặc tiêu đề.
-- Chất vui nhộn: sticker hình học, dấu `:)` hoặc microcopy dí dỏm; không tự gán biệt danh/tính cách cho thành viên.
-- Không dùng hiệu ứng glitch trên đoạn văn hoặc nhấp nháy liên tục. Nội dung giải thưởng và thông tin học tập trình bày rõ ràng.
-
-### 3.2. Palette đã chốt về hướng màu
+### 3.1. Palette
 
 | Token | Màu | Vai trò |
 | --- | --- | --- |
-| `--color-bg` | `#08111F` | Nền toàn trang |
-| `--color-surface` | `#111E30` | Card và khối nội dung |
-| `--color-surface-raised` | `#182A40` | Khối nổi và trạng thái hover |
-| `--color-text` | `#F4F8FF` | Chữ chính |
-| `--color-muted` | `#B7C5D8` | Mô tả phụ |
-| `--color-primary` | `#53D8FB` | Link, icon, focus và điểm nhấn |
-| `--color-highlight` | `#E5FF70` | Highlight tên team và CTA chính |
-| `--color-on-accent` | `#08111F` | Chữ trên nền cyan/vàng chanh |
-| `--color-border` | `#2A3C55` | Viền phân chia |
-| `--color-success` | `#7BE0AD` | Trạng thái thành công nếu có |
-| `--color-error` | `#FF9B9B` | Lỗi form nếu có |
+| `--color-bg` | `#FFF8FA` | Nền trắng ấm pha hồng |
+| `--color-surface` | `#FFFFFF` | Nền member card |
+| `--color-surface-raised` | `#FCE8EF` | Badge, avatar và locale đang chọn |
+| `--color-text` | `#37252E` | Chữ chính màu mận tối |
+| `--color-muted` | `#725D67` | Mô tả |
+| `--color-primary` | `#974666` | Link, focus và highlight tên team |
+| `--color-accent` | `#F3C5D6` | Nền nút chính hồng pastel |
+| `--color-on-accent` | `#462C39` | Chữ trên nút pastel |
+| `--color-border` | `#EAD9E0` | Đường phân chia nhẹ |
 
-Team đã đồng ý hướng navy/cyan/vàng chanh. Mã hex là thông số triển khai khởi đầu, có thể tinh chỉnh độ sáng để bảo đảm tương phản trên giao diện thực tế, đặc biệt tại hero có ảnh. CTA màu sáng dùng chữ navy. Màu trạng thái phải đi kèm thông điệp hoặc biểu tượng, không truyền tải ý nghĩa bằng màu đơn thuần.
+Đã đo các cặp chữ chính: 13.68:1 (chữ chính/nền), 5.77:1 (mô tả/nền), 5.30:1 (mận/badge), 8.20:1 (chữ/nút pastel). Đây là kiểm tra màu, không phải chứng nhận toàn bộ khả năng truy cập.
 
-### 3.3. Typography
+### 3.2. Typography và bố cục
 
-- Body: ưu tiên font hỗ trợ tiếng Việt đầy đủ; khởi đầu bằng system font stack để nhẹ và ổn định.
-- Có thể chọn một font sans-serif riêng sau khi xác nhận phong cách; kiểm tra dấu tiếng Việt trước khi dùng.
-- Body 16–18 px, line-height khoảng 1.6.
-- H1 co giãn bằng `clamp()`, dự kiến 48–112 px tùy viewport; điều chỉnh để tên team không tràn ở màn hình 320 px.
-- H2 khoảng 32–52 px; tiêu đề card khoảng 20–24 px.
-- Mô tả dài giới hạn khoảng 60–70 ký tự mỗi dòng.
-- Không dùng font monospace cho toàn bộ nội dung; chỉ dùng cho nhãn kỹ thuật ngắn nếu cần.
-
-### 3.4. Layout và component
-
-- Container tối đa khoảng 1200 px, căn giữa.
-- Padding ngang: 20 px trên mobile, 32 px trên tablet, 48 px trên desktop.
-- Nhịp spacing: 4, 8, 12, 16, 24, 32, 48, 64, 96 px.
-- Section padding dọc: khoảng 64 px mobile, 96 px desktop.
-- Card bo góc 16–20 px; button bo góc 10–12 px.
-- Button/icon button đặt mục tiêu vùng bấm tối thiểu 44 × 44 px.
-- Component dùng lại: container, section heading, button, badge, member card, achievement item, project card, social link.
-- Mỗi component phải có trạng thái mặc định, hover, focus-visible và trạng thái lỗi/disabled nếu thực sự sử dụng.
+- System sans-serif hỗ trợ đầy đủ dấu tiếng Việt; không tải font ngoài.
+- H1 Home co giãn 2.8–5.4rem, tên HiHiHaHa highlight màu mận; dòng Squad màu tối.
+- Container tối đa 1240 px, padding ngang 20–48 px.
+- Nền toàn trang dùng các lớp linear gradient nhẹ; header bán trong suốt có blur nhẹ. Họa tiết chính là lưới ô vuông 42 px kéo mờ dần xuống dưới và mảng lưới 26 px tại page header; tất cả nằm sau nội dung, opacity thấp và không cản thao tác.
+- Home dùng hai cột desktop: giới thiệu bên trái, ảnh nhóm bên phải giữ tỷ lệ 4:3 và dim nhẹ 10%; mobile ảnh ở trên, chữ bên dưới.
+- Bố cục ảnh mới thay thế ảnh nền toàn màn hình để giữ đầy đủ bốn người và hợp hướng minimal.
+- Các trang con có heading lớn, giới hạn chiều dài dòng; dùng divider thay vì bọc mọi đoạn trong card.
+- Card thành viên dùng nền trắng, viền mảnh và avatar chữ cái. Chưa tự gán tên người trong ảnh.
+- Tiêu đề “Bốn thành viên” / “Four Squad Members” đứng độc lập, không hiển thị badge “Từ 2026” / “Since 2026”.
+- Button bo góc 12 px, ảnh 24 px; link và control chính có vùng bấm tối thiểu 44 px.
+- Không kéo card không tương tác lên khi hover. CTA chỉ dịch 1 px và đổi nền nhẹ.
+- Reveal 400 ms dịch 10 px, nội dung mặc định luôn hiện; reduced motion tắt animation/transition.
 
 ## 4. Thiết kế chi tiết từng phần
 
@@ -151,7 +132,7 @@ Team đã đồng ý hướng navy/cyan/vàng chanh. Mã hex là thông số tri
 
 **Mobile:** tên team và nút menu. Menu bung xuống trong luồng bố cục, hiển thị đủ liên kết và có nền đặc để dễ đọc.
 
-- Header sticky, nền navy bán trong suốt hoặc đặc; cần fallback nếu không hỗ trợ blur.
+- Header sticky nền hồng sáng đặc, viền mảnh; không cần blur.
 - Bấm tên team trở về Home cùng ngôn ngữ.
 - Mục trang đang xem có gạch chân/điểm đánh dấu và `aria-current="page"`, được đặt trong HTML của trang.
 - Có skip link “Đi đến nội dung” để bỏ qua navigation bằng bàn phím.
@@ -170,27 +151,18 @@ Team đã đồng ý hướng navy/cyan/vàng chanh. Mã hex là thông số tri
 5. CTA phụ đề xuất: “Dấu mốc của tụi mình” / “Our milestone” → trang Achievement cùng ngôn ngữ.
 6. Teaser ngắn tùy chọn: “Giải pháp Tiêu biểu · SCIKATHON 2026”; chỉ đặt gợi ý cuộn nếu Home có nội dung bên dưới.
 
-**Ảnh và dim:**
+**Ảnh và bố cục:**
 
-- Dùng `homepage.png` làm nguồn ảnh gốc, giữ nguyên file gốc.
-- Desktop sử dụng ảnh phủ hero, `object-fit: cover`; điểm lấy nét ban đầu ở giữa, sau đó điều chỉnh theo màn hình thực tế.
-- Dùng lớp overlay navy riêng, opacity ban đầu khoảng 0.30–0.42 để làm tối nhẹ.
-- Bổ sung gradient cục bộ sau vùng chữ nếu cần; tránh làm cả bức ảnh quá tối chỉ để đọc một đoạn text.
-- Không đặt `opacity` trên toàn hero vì sẽ làm mờ cả chữ và CTA.
-- Không áp dụng blur toàn ảnh làm mất chi tiết của team.
-- Tiêu đề có thể xuống dòng thành “HiHiHaHa” / “Squad”; highlight bằng vàng chanh hoặc một dải nền vừa đủ, kèm shadow nhẹ nếu cần.
-- Không đặt nội dung lên khuôn mặt. Kiểm tra trực quan vị trí tiêu đề thay vì chỉ căn giữa mặc định.
-
-**Lưu ý bố cục mobile:**
-
-Ảnh gốc tỷ lệ 4:3 và có người ở cả hai bên. Nếu dùng `cover` trong hero dọc toàn màn hình, ảnh sẽ bị cắt nhiều. Đề xuất trên mobile: giữ ảnh trong vùng 4:3 ở phía trên hero, chữ và CTA ở vùng navy liền mạch phía dưới. Nếu team ưu tiên ảnh làm nền kín màn hình trên mọi thiết bị, cần duyệt crop mobile cụ thể hoặc cung cấp ảnh dọc khác.
-
-Desktop có thể dùng `min-height: 100svh`; mobile để chiều cao theo nội dung. Tránh chiều cao cố định làm cắt nội dung khi zoom hoặc trên thiết bị thấp.
+- Giữ nguồn `homepage.png` và các bản WebP hiện có.
+- Desktop từ 900 px: hai cột, ảnh 4:3 bên phải, chữ bên trái; không đặt chữ che người.
+- Mobile: ảnh 4:3 phía trên, nội dung hồng sáng bên dưới; chiều cao theo nội dung.
+- Lớp dim riêng 10%, không làm mờ chữ; không blur ảnh.
+- Tên team highlight bằng màu mận, bỏ text shadow/neon. Nút chính nền hồng pastel với chữ tối.
 
 ### 4.3. About
 
-- Mở đầu từ dữ liệu đã xác nhận: HiHiHaHa Squad gồm bốn sinh viên Data Science tại Trường Đại học Khoa học tự nhiên, ĐHQG-TP.HCM, cùng tham gia hackathon.
-- Câu mở đầu trả lời: team là ai, tập trung vào lĩnh vực gì, vì sao tham gia hackathon.
+- Mở đầu từ dữ liệu đã xác nhận: HiHiHaHa Squad là nhóm 4 sinh viên ngành Khoa học dữ liệu tại Trường Đại học Khoa học tự nhiên, ĐHQG-TP.HCM, cùng tham gia Hackathon.
+- Câu mở đầu trả lời: team là ai, tập trung vào lĩnh vực gì, vì sao tham gia Hackathon.
 - Câu chuyện tên gọi và cách team hợp tác, khoảng 80–150 từ nếu có đủ nội dung.
 - Thế mạnh trình bày bằng 3–4 nhóm kỹ năng thực tế, không tự gán AI/web/blockchain khi chưa có dữ liệu.
 - Thành viên: ảnh, tên/nickname, vai trò, bio ngắn và link cá nhân được cung cấp.
@@ -204,8 +176,10 @@ Desktop có thể dùng `min-height: 100svh`; mobile để chiều cao theo nộ
 - Tên: **Giải pháp Tiêu biểu — SCIKATHON 2026**. Tháng hiển thị: **10/2026**; ngày thi từ trang ban tổ chức: **11/10/2026**.
 - Đặt `scikathon.png` trong khung giữ được nhóm người và bối cảnh sự kiện; ưu tiên ảnh bên trái, nội dung bên phải trên desktop, xếp dọc trên mobile.
 - Nội dung gồm tên giải, thời gian, bối cảnh đề bài từ doanh nghiệp, giới hạn 60 phút và cách trình bày trên một tờ A4.
-- Bài toán team xử lý: thiếu hụt nhân lực ở khâu sản xuất; cần tìm nhân lực mới và bảo đảm chất lượng nhân lực phù hợp với tiến độ dự án.
-- Mô tả trên là phạm vi bài toán và mục tiêu do team cung cấp. Cơ chế giải pháp, doanh nghiệp, công nghệ và kết quả định lượng chưa có; không tự thêm AI matching, hệ thống tuyển dụng hoặc tỷ lệ cải thiện.
+- Bài toán doanh nghiệp: thiếu lao động phổ thông tại dây chuyền sản xuất kéo dài từ sau Tết, khiến nhân sự hiện hữu tăng ca thường xuyên, gia tăng sai số và hàng lỗi; phạm vi tuyển vẫn chủ yếu quanh nhà máy và chưa có phương tiện đưa đón cho khối sản xuất.
+- Góc nhìn của team: tiếp cận toàn bộ vòng đời nhân lực—thu hút đúng người, giúp người lao động tiếp cận nơi làm việc, đào tạo để nhanh chóng thích nghi và tạo quyền lợi phù hợp để họ gắn bó.
+- Insight cốt lõi: yêu cầu đầu vào chỉ cần tốt nghiệp THPT và doanh nghiệp có đào tạo sau tuyển dụng; rào cản chính là tiếp cận đúng nguồn ứng viên, tạo thuận tiện đi làm và đủ lý do để họ gắn bó lâu dài.
+- Mô tả trên là phạm vi bài toán và định hướng do team cung cấp. Công nghệ và kết quả định lượng chưa có; không tự thêm AI matching, hệ thống tuyển dụng hoặc tỷ lệ cải thiện.
 - Link “Thông tin cuộc thi” dùng `https://uscihub.vn/scikathon-2026/`, bỏ tham số tracking. Không dùng nút đăng ký làm CTA của thành tích đã diễn ra.
 - Kết quả team nhận giải dựa trên thông tin người dùng cung cấp. Trang giới thiệu cuộc thi xác nhận thể lệ/hạng mục giải, không phải danh sách đội thắng; ảnh nhóm là tư liệu sự kiện, không tự mô tả là ảnh chứng nhận hoặc ảnh trao giải.
 - Không tự đổi thành giải nhất/nhì/ba, không gán thứ hạng hay tiền thưởng cho team.
@@ -326,47 +300,13 @@ MVP viết nội dung đã dịch trực tiếp trong từng HTML, dùng chung C
 
 ### 5.4. Tổ chức CSS
 
-1. Reset nhẹ và box-sizing.
-2. Design tokens trong `:root`.
-3. Base typography và style link/focus.
-4. Layout dùng Grid/Flexbox, container và section spacing.
-5. Component styles.
-6. Responsive, reduced motion và các trạng thái tương tác.
+Nguồn triển khai: `assets/css/styles.css`. File gồm tokens, reset, navigation, control, hero, các trang con, footer, responsive và reduced motion. Dùng chung cho 10 trang, không duy trì bản CSS riêng cho từng ngôn ngữ.
 
-```css
-:root {
-  --color-bg: #08111f;
-  --color-surface: #111e30;
-  --color-text: #f4f8ff;
-  --color-muted: #b7c5d8;
-  --color-primary: #53d8fb;
-  --color-highlight: #e5ff70;
-  --header-height: 5rem;
-  --hero-dim: 0.36;
-}
-
-html { scroll-behavior: smooth; }
-section[id] { scroll-margin-top: calc(var(--header-height) + 1rem); }
-.hero { position: relative; isolation: isolate; }
-.hero__media { position: absolute; inset: 0; z-index: -2; }
-.hero__media img { width: 100%; height: 100%; object-fit: cover; }
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: rgb(8 17 31 / var(--hero-dim));
-  pointer-events: none;
-}
-.hero__title { color: var(--color-highlight); }
-:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 4px; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-}
-```
-
-Đoạn CSS hero minh họa cho bố cục desktop. Mobile cần override media thành vùng ảnh trong luồng có tỷ lệ 4:3 và đặt overlay trong vùng ảnh, theo thiết kế ở mục 4.2. Không dùng nguyên xi `position: absolute` cho cả hai bố cục.
+- Breakpoint 600 px cho member grid 2 cột; 900 px cho desktop navigation/hero; 1100 px cho member grid 4 cột.
+- `.mobile-nav` hiển thị mặc định. Chỉ khi các listener menu được khởi tạo xong, JS mới thêm `.nav-enhanced` để bật cơ chế thu gọn.
+- `.reveal` luôn có opacity 1. Observer chỉ kích hoạt chuyển động nhẹ, không là điều kiện để người xem đọc nội dung.
+- Button có thể xuống dòng ở viewport nhỏ, tránh `white-space: nowrap` làm tràn ngang.
+- `:focus-visible` dùng outline màu mận; reduced motion tắt chuyển động.
 
 ### 5.5. Logic JavaScript
 
@@ -428,7 +368,7 @@ Breakpoint là giá trị khởi đầu; điều chỉnh theo nội dung thật,
 - Ở zoom 200%, navigation, CTA và nội dung vẫn truy cập được.
 - Không dùng hover làm cách duy nhất để xem mô tả hoặc link.
 - Animation vừa phải: hover/focus 160–220 ms; page entry và reveal 350–500 ms; stagger card 60–90 ms, chỉ chạy một lần khi vào viewport.
-- Có thể cho tiêu đề xuất hiện nhẹ, viền neon sáng lên khi tương tác và card nâng 2–4 px; không để các hiệu ứng này làm đổi layout hoặc trì hoãn chữ hero xuất hiện.
+- Chuyển động chỉ hỗ trợ tương tác; không dùng neon, không nâng card tĩnh khi hover, không trì hoãn chữ hero.
 - Không dùng preloader giả, scroll hijacking, con trỏ tùy biến bắt buộc, parallax mạnh hoặc glitch nhấp nháy liên tục. Không chờ animation kết thúc mới cho bấm link.
 - Reduced motion phải tắt animation reveal và các chuyển động không cần thiết, ngoài việc tắt smooth scroll.
 
@@ -487,8 +427,10 @@ Thứ tự xuất hiện mong muốn:
 | Ngày thi theo ban tổ chức | 11/10/2026 |
 | Bối cảnh | Tìm giải pháp cho bài toán thực tế trong 60 phút, trình bày trên một tờ A4 |
 | Ảnh tư liệu | `scikathon.png` |
-| Bài toán của team | Thiếu hụt nhân lực sản xuất; tìm kiếm nhân lực mới và bảo đảm chất lượng nhân lực phù hợp tiến độ dự án |
-| Cách thực hiện giải pháp, công nghệ và kết quả | Chờ bổ sung, không tự suy diễn |
+| Bài toán doanh nghiệp | Thiếu lao động phổ thông kéo dài từ sau Tết; tăng ca làm gia tăng sai số và hàng lỗi; nguồn tuyển còn giới hạn quanh nhà máy và chưa có phương tiện đưa đón cho khối sản xuất |
+| Góc nhìn của team | Xây dựng vòng đời nhân lực bền vững từ thu hút, tiếp cận, đào tạo đến giữ chân |
+| Insight cốt lõi | Rào cản chính nằm ở khả năng tiếp cận đúng nguồn ứng viên, hỗ trợ việc đi làm thuận tiện và tạo lý do gắn bó lâu dài |
+| Công nghệ và kết quả định lượng | Chờ bổ sung, không tự suy diễn |
 | Nguồn kết quả team | Người dùng cung cấp |
 | Nguồn thể lệ/ngày thi | [Trang SCIKATHON 2026 của U-Sci Hub](https://uscihub.vn/scikathon-2026/) |
 | Minh chứng giải riêng | Chờ bổ sung nếu có ảnh chứng nhận hoặc công bố kết quả |
@@ -500,8 +442,8 @@ Nguồn chính thức được đối chiếu ngày 12/10/2026 cho bối cảnh,
 - VI: “Tháng 10/2026, HiHiHaHa Squad đạt giải Giải pháp Tiêu biểu tại SCIKATHON 2026. Cuộc thi thử thách tư duy giải quyết vấn đề thực tế trong 60 phút, với giải pháp trình bày trên một tờ A4.”
 - EN: “In October 2026, HiHiHaHa Squad received the Notable Solution Award at SCIKATHON 2026. The competition challenged participants to address a real-world problem in 60 minutes and present their solution on a single A4 sheet.”
 - “Notable Solution Award” là bản dịch đề xuất của “Giải pháp Tiêu biểu”, cần rà soát trước khi xuất bản.
-- VI — phần bài toán: “Team tập trung vào bài toán thiếu hụt nhân lực trong sản xuất: tìm kiếm nhân lực mới và bảo đảm chất lượng nhân lực đáp ứng tiến độ dự án.”
-- EN — phần bài toán: “The team focused on production workforce shortages: finding new personnel and ensuring workforce quality meets project schedule requirements.”
+- VI — phần bài toán: dùng ba khối “Bài toán doanh nghiệp”, “Góc nhìn của team” và “Insight cốt lõi” theo nội dung đã xác nhận ngày 12/10/2026.
+- EN — phần bài toán: dùng bản dịch tương ứng “Business Challenge”, “Our Perspective” và “Core Insight”.
 - Chưa có tên giải pháp chính thức; có thể dùng nhãn mô tả “Bài toán nhân lực sản xuất” / “Production workforce challenge”, không biến nhãn này thành tên sản phẩm hoặc một dự án đã hoàn thiện.
 
 **Mẫu để bổ sung thành tích về sau:**
@@ -574,7 +516,7 @@ Không tự điền số liệu, tên cuộc thi, giải thưởng hoặc thành
 
 ### Giai đoạn 1 — Chốt brief và nội dung
 
-**Công việc:** dùng các quyết định đã chốt: 5 trang × 2 ngôn ngữ, mặc định Việt, cyber pha vui nhộn, palette navy/cyan/vàng chanh, animation vừa phải, giới thiệu team thành lập 2026. Bổ sung nội dung còn thiếu và xử lý ảnh mobile theo đề xuất giữ đủ người nếu chưa có chỉ dẫn khác.
+**Công việc:** dùng các quyết định đã chốt: 5 trang × 2 ngôn ngữ, mặc định Việt, minimal hồng pastel, nền sáng/chữ mận, animation vừa phải, giới thiệu team thành lập 2026. Bổ sung nội dung còn thiếu và xử lý ảnh mobile theo đề xuất giữ đủ người nếu chưa có chỉ dẫn khác.
 
 **Đầu ra:** cập nhật bản planning này, bộ nội dung đã xác nhận và danh mục asset.
 
@@ -682,14 +624,26 @@ Form gửi tin, CMS, analytics, lọc dự án và case study riêng chưa thu�
 | 12/10/2026 | Portfolio cho team HiHiHaHa Squad, dùng `homepage.png`, highlight tên team, bốn mục điều hướng | Đã xác nhận từ yêu cầu |
 | 12/10/2026 | About, Achievement, Project, Contact là trang riêng; có Home | Đã xác nhận, thay thế đề xuất một trang ban đầu |
 | 12/10/2026 | Hai chế độ Việt/Anh, mặc định tiếng Việt | Đã xác nhận |
-| 12/10/2026 | Cyber pha vui nhộn, animation vừa phải, navy/cyan/vàng chanh | Đã xác nhận |
+| 12/10/2026 | Cyber pha vui nhộn, animation vừa phải, navy/cyan/vàng chanh | Lựa chọn cũ, đã được thay bằng minimal hồng pastel |
 | 12/10/2026 | Mục tiêu giới thiệu team; 4 thành viên Data Science tại Trường ĐH Khoa học tự nhiên, ĐHQG-TP.HCM | Đã xác nhận |
 | 12/10/2026 | Team thành lập năm 2026 | Đã xác nhận |
 | 12/10/2026 | Giải pháp Tiêu biểu SCIKATHON 2026, tháng 10/2026, tư liệu `scikathon.png` | Kết quả do team cung cấp; ngày thi/hạng mục đối chiếu trang tổ chức |
 | 12/10/2026 | Bài toán thiếu hụt nhân lực sản xuất, tìm người mới, bảo đảm chất lượng phù hợp tiến độ | Đã xác nhận; chưa có cơ chế triển khai hoặc số liệu kết quả |
+| 12/10/2026 | Mở rộng phần SCIKATHON theo vòng đời nhân lực; About dùng “nhóm 4 sinh viên ngành Khoa học dữ liệu”; viết hoa “Hackathon”; footer chỉ còn “© 2026 HiHiHaHa Squad” | Đã triển khai đồng bộ VI/EN |
 | 12/10/2026 | Dự án và link liên hệ bổ sung sau | Đã xác nhận |
 | 12/10/2026 | Hosting Vercel, mục tiêu miễn phí | Đã xác nhận hướng triển khai |
 | 12/10/2026 | HTML/CSS/JS thuần, URL Việt ở gốc và Anh trong `en/`, wordmark, mobile ưu tiên đủ người | Đề xuất kỹ thuật/bố cục chưa được xác nhận riêng |
 | 12/10/2026 | Vai trò/bio/link cá nhân, tagline, cơ chế giải pháp, domain và deadline | Chờ bổ sung, xử lý theo mục 11 |
 
 Sau khi nhận câu trả lời, cập nhật trực tiếp các mục liên quan và bảng quyết định này để bản kế hoạch trở thành nguồn tham chiếu thống nhất khi triển khai.
+
+## 13. Review và cập nhật code — 12/10/2026
+
+- Đã chuyển toàn bộ 10 trang sang minimal hồng pastel, đồng bộ theme-color và favicon.
+- Sửa nội dung reveal bị ẩn khi JavaScript lỗi/tắt; navigation mobile có fallback không JS.
+- Menu có nhãn mở/đóng theo locale, Escape trả focus và xử lý focus khi đổi breakpoint.
+- Nút lên đầu trang trở thành anchor native, hoạt động không cần JS.
+- Bỏ câu chuyện nguồn gốc tên team chưa xác nhận, nhãn Cohort 2026 (nhầm năm thành lập với khóa học) và lời khẳng định đang hoàn thiện dự án khi chưa có dữ liệu.
+- Asset không có hash không còn cache immutable một năm; dùng revalidation để tránh giữ CSS/JS cũ sau deploy.
+- Đã kiểm tra cú pháp JS, đường dẫn/fragment/asset của 10 trang, token CSS và tương phản màu; kiểm tra trình duyệt ở 320 px, menu/locale/Escape và trang không tải JS.
+- Domain production chưa được cung cấp: URL metadata tuyệt đối/canonical và kiểm tra Vercel production vẫn là bước trước phát hành. Chưa tuyên bố đạt toàn bộ WCAG hoặc kiểm tra Safari/iOS thực tế.

@@ -1,16 +1,16 @@
 # HiHiHaHa Squad — Portfolio Website
 
-> Website portfolio chính thức của **HiHiHaHa Squad** — đội tuyển hackathon gồm 4 sinh viên Khoa học Dữ liệu (Data Science) tại Trường Đại học Khoa học tự nhiên, ĐHQG-TP.HCM (HCMUS).
+> Website portfolio chính thức của **HiHiHaHa Squad** — nhóm 4 sinh viên ngành Khoa học dữ liệu (Data Science) tại Trường Đại học Khoa học tự nhiên, ĐHQG-TP.HCM (HCMUS), cùng tham gia Hackathon.
 
 ---
 
 ## 🌟 Giới thiệu
 
-- **Theme & Phong cách:** Cyber pha vui nhộn, palette màu Navy (`#08111f`) – Cyan (`#53d8fb`) – Vàng chanh (`#e5ff70`).
+- **Theme & Phong cách:** Minimal hồng pastel: nền `#FFF8FA`, hồng phấn `#F3C5D6`, chữ mận `#37252E`, điểm nhấn `#974666`.
 - **Cấu trúc:** 5 trang riêng biệt × 2 ngôn ngữ (Tiếng Việt mặc định, Tiếng Anh trong thư mục `/en/`).
 - **Thành tích:** Giải pháp Tiêu biểu tại **SCIKATHON 2026** (11/10/2026).
 - **Thành viên:** Vũ Hoàng Minh, Giáp Thị Minh Ngọc, Đỗ Thị Thanh Phương, Đoàn Minh Quân.
-- **Công nghệ:** HTML5 ngữ nghĩa, CSS3 hiện đại, Vanilla JavaScript (nhẹ, chuẩn Accessibility WCAG AA, không phụ thuộc framework).
+- **Công nghệ:** HTML5 ngữ nghĩa, CSS3 hiện đại, Vanilla JavaScript (nhẹ, hỗ trợ bàn phím/reduced motion và fallback không JavaScript; không phụ thuộc framework).
 
 ---
 
@@ -21,7 +21,7 @@ hihihaha-squad/
 ├── planning.md                 # Tài liệu kế hoạch chi tiết
 ├── README.md                   # Hướng dẫn chạy và triển khai
 ├── vercel.json                 # Cấu hình deploy Vercel
-├── favicon.svg                 # Biểu tượng website (cyber-fun)
+├── favicon.svg                 # Biểu tượng website (smiley hồng pastel)
 ├── homepage.png                # Ảnh gốc nhóm (2048 × 1536 px)
 ├── scikathon.png               # Ảnh sự kiện SCIKATHON (1536 × 2048 px)
 │
@@ -42,7 +42,7 @@ hihihaha-squad/
     ├── css/
     │   └── styles.css          # Design tokens, responsive, layout, a11y
     ├── js/
-    │   └── main.js             # Menu mobile, reveal animation, back-to-top
+    │   └── main.js             # Menu mobile và reveal animation; link lên đầu trang dùng HTML
     └── images/
         ├── hero/
         │   ├── homepage.webp        # Bản WebP tối ưu cho desktop (~306 KB)
@@ -101,3 +101,13 @@ Website duy trì 2 phiên bản ngôn ngữ song song, hãy luôn cập nhật �
 3. Import GitHub repository `hihihaha-squad`.
 4. Ở phần **Framework Preset**, chọn **Other** (hoặc để mặc định).
 5. Nhấn **Deploy**. Vercel sẽ tự động publish website và cấp một domain miễn phí dạng `hihihaha-squad.vercel.app`.
+
+
+## Review giao diện và logic (12/10/2026)
+
+- Giữ 5 trang × 2 ngôn ngữ, mặc định VI; ảnh nhóm hiển thị đủ người trên mobile.
+- Menu mobile và nội dung vẫn truy cập được khi JavaScript tắt/lỗi.
+- Escape đóng menu và trả focus; nhãn nút menu phản ánh trạng thái bằng đúng ngôn ngữ.
+- Asset dùng tên cố định nên revalidate thay vì cache immutable một năm.
+- Đã kiểm tra JS syntax, link/asset/fragment trên 10 trang, tương phản palette và responsive 320 px trong trình duyệt.
+- Chưa kiểm tra Safari/iOS thực tế hoặc triển khai production. Cần chốt domain để hoàn thiện URL metadata tuyệt đối/canonical.
